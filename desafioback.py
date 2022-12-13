@@ -13,6 +13,7 @@
 # OBS: Não esqueça das validações
 # OBS: Sempre que acontecer um aluguel ou venda diminuir do estoque.
 # OBS: Faça a impressão dos elementos
+
 class Livraria():
     
     pass
