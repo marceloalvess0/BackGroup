@@ -23,8 +23,8 @@ class Livraria():
         else:
             print('Novo tipo invalido, digite algo valido')
 class Revista(Livraria):
-    def __init__(self, nome,numero_de_paginas,idioma,editora,status):
-        super().__init__(nome)
+    def __init__(self, nome, tipo, numero_de_paginas,idioma,editora,status):
+        super().__init__(nome, tipo)
         self.__numero_de_paginas=numero_de_paginas
         self.__idioma = idioma
         self.__editora = editora
