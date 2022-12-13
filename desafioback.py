@@ -1,4 +1,20 @@
+#Lembrando que:
+# snake_case para variáveis, funções e métodos;
+# PascalCase para classes;
+#============================================================
+# Crie um ambiente O.O. completo utilizando classes e métodos:
+# Na classe Livraria sub-classes Revista e Livro sabemos que:
+# atributos: nome, Número de páginas, Idioma, Editora, tipo e status
+# todos atributos encapsulados fortemente
+# métodos para:
+# controlar o aluguel dos livros, calculo do aluguel em (07)dias
+# controlar a venda dos livros
+# OBS: Lembre-se de fazer os GETs e SETs
+# OBS: Não esqueça das validações
+# OBS: Sempre que acontecer um aluguel ou venda diminuir do estoque.
+# OBS: Faça a impressão dos elementos
 class Livraria():
+    
     pass
     def __init__(self,nome,tipo):
         self.__nome=nome
