@@ -19,7 +19,8 @@ class Livraria():
     def __init__(self,nome,tipo):
         self.__nome=nome
         self.__tipo=tipo
-        pass
+
+            
     @property 
     def nome(self) :
         return self.__nome
@@ -39,18 +40,33 @@ class Livraria():
         else:
             print('Novo tipo invalido, digite algo valido')
 class Revista(Livraria):
-    def __init__(self, nome, tipo, numero_de_paginas,idioma,editora,status):
+    def __init__(self, nome, tipo,numero_de_paginas,idioma,editora,status):
         super().__init__(nome, tipo)
-        self.__numero_de_paginas=numero_de_paginas
+        self.__numero_de_paginas = numero_de_paginas
         self.__idioma = idioma
         self.__editora = editora
         self.__status = status
     pass
 class Livro(Livraria):
-    def __init__(self, nome, tipo,numero_de_paginas,idioma,editora,status):
+    def __init__(self, nome, tipo, quantidade_estoque, numero_de_paginas,idioma,editora,status):
         super().__init__(nome, tipo)
-        self.__numero_de_paginas=numero_de_paginas
+        self.__numero_de_paginas = numero_de_paginas
         self.__idioma = idioma
         self.__editora = editora
         self.__status = status
-    pass
+        self.__quantidade_estoque = quantidade_estoque
+        
+    def verificação_de_aluguel(self):
+        if self.__quantidade_estoque>=1:
+            self.__quantidade_estoque -= 1
+            print("alugando livro")
+            return self.__quantidade_estoque
+        else:
+            print("Este livro não pode ser alugado")
+            
+    def valor_dias_alugados(self,dias):
+        if dias == int:
+            valor = dias/7*(10)         # 10,00 é o valor do aluguel por 7 dias
+            print(f'O valor do aluguel durante {dias} é {valor:.2f}')
+        else:
+            print("Digite algo válido")
