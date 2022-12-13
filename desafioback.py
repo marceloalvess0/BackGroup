@@ -100,7 +100,6 @@ class Livro(Livraria):
         self.__idioma = idioma
         self.__editora = editora
         self.__status = status
-<<<<<<< HEAD
         self.__quantidade_estoque = quantidade_estoque
         
     def verificação_de_aluguel(self):
@@ -113,11 +112,10 @@ class Livro(Livraria):
             
     def valor_dias_alugados(self,dias):
         if dias == int:
-            valor = dias/7*(10)         # 10,00 é o valor do aluguel por 7 dias
+            valor = (dias/7)*(10)         # 10,00 é o valor do aluguel por 7 dias
             print(f'O valor do aluguel durante {dias} é {valor:.2f}')
         else:
             print("Digite algo válido")
-=======
     
     #------------------GETS AND SETERS
     @property
@@ -163,4 +161,3 @@ class Livro(Livraria):
             self.__status = novo_nome
         else:
             print('Digite um valor valido, str()')
->>>>>>> c34a6ba55c1273f5ca454bfffff554e06d94dfe0
