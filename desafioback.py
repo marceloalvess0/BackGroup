@@ -16,7 +16,6 @@
 
 class Livraria():
     
-    pass
     def __init__(self,nome,tipo):
         self.__nome=nome
         self.__tipo=tipo
@@ -41,12 +40,13 @@ class Livraria():
         else:
             print('Novo tipo invalido, digite algo valido')
 class Revista(Livraria):
-    def __init__(self, nome, tipo,numero_de_paginas,idioma,editora,status):
+    def __init__(self, nome,tipo,quantidade_estoque,numero_de_paginas,idioma,editora,status):
         super().__init__(nome, tipo)
         self.__numero_de_paginas = numero_de_paginas
         self.__idioma = idioma
         self.__editora = editora
         self.__status = status
+        self.__quantidade_estoque = quantidade_estoque
 
     #------------------GETS AND SETERS
     @property
@@ -85,13 +85,51 @@ class Revista(Livraria):
             self.__editora = novo_nome
         else:
             print('Digite um valor valido, str()')
-
+    def verificação_de_aluguel(self):
+        if self.__quantidade_estoque>=1:
+            self.__quantidade_estoque -= 1
+            print("alugando revista")
+            return self.__quantidade_estoque
+        else:
+            print("Este livro não pode ser alugado")
+            
+    def valor_dias_alugados(self,dias):
+        if type(dias) == int :
+            if dias >=1 :
+                self.valor = (dias/7)*(5)         # 05.00 é o valor do aluguel por 7 dias
+                print(f'O valor do aluguel durante {dias} dias é {self.valor:.2f} R$')
+            else :
+                print('Digite um número valido')
+        else:
+            print("Digite algo válido")
+    def verificação_multa (self,dias) :
+        if dias > 7 :
+            print(f'a partir do setimo dia voce recebera uma multa de 2R$ por dia a mais')
+            dias -= 7
+            self.conta = dias * 2.0
+            print(f'sua multa foi de {self.conta}')
+        else :
+            print('sem multa')
+    def verificação_de_compra(self,quantidade):
+        if type(quantidade) == type(float()) :
+            if quantidade >0 :
+                if 1 <= self.__quantidade_estoque >= quantidade:
+                    self.__quantidade_estoque -= quantidade
+                    print("Vendendo revista")
+                    print(f'sua revista foi {quantidade}')
+                    return self.__quantidade_estoque
+            else :
+                print('compra invalida')
+        else :
+            print('compra invalida')
     @status.setter
     def status(self, novo_nome):
         if type(novo_nome) == str: 
             self.__status = novo_nome
         else:
             print('Digite um valor valido, str()')
+    def __str__ (self) :
+        return f'o nome da sua revista é {self.nome} do  tipo {self.tipo} com {self.numero_de_paginas} paginas idiomas {self.idioma} a editora {self.editora}'
         
 class Livro(Livraria):
     def __init__(self, nome, tipo, quantidade_estoque, numero_de_paginas,idioma,editora,status):
@@ -111,17 +149,34 @@ class Livro(Livraria):
             print("Este livro não pode ser alugado")
             
     def valor_dias_alugados(self,dias):
-        if dias == int:
-            valor = (dias/7)*(10)         # 10,00 é o valor do aluguel por 7 dias
-            print(f'O valor do aluguel durante {dias} é {valor:.2f}')
+        if type(dias) == int :
+            if dias >=1 :
+                self.valor = (dias/7)*(10)         # 10,00 é o valor do aluguel por 7 dias
+                print(f'O valor do aluguel durante {dias} dias é {self.valor:.2f} R$')
+            else :
+                print('Digite um número valido')
         else:
             print("Digite algo válido")
-            
+    def verificação_multa (self,dias) :
+        if dias > 7 :
+            print(f'a partir do setimo dia voce recebera uma multa de 5R$ por dia a mais')
+            dias -= 7
+            self.conta = dias * 5.0
+            print(f'sua multa foi de {self.conta}')
+        else :
+            print('sem multa')
     def verificação_de_compra(self,quantidade):
-        if 1 <= self.__quantidade_estoque >= quantidade:
-            self.__quantidade_estoque -= quantidade
-            print("Vendendo livro")
-            return self.__quantidade_estoque
+        if type(quantidade) == type(float()) :
+            if quantidade >0 :
+                if 1 <= self.__quantidade_estoque >= quantidade:
+                    self.__quantidade_estoque -= quantidade
+                    print("Vendendo livro")
+                    print(f'seu livro foi {quantidade}')
+                    return self.__quantidade_estoque
+            else :
+                print('compra invalida')
+        else :
+            print('compra invalida')
     
     #------------------GETS AND SETERS
     @property
@@ -139,6 +194,17 @@ class Livro(Livraria):
     @property
     def status(self):
         return self.__status
+
+    @property
+    def quantidade_de_estoque(self):
+        return self.__quantidade_estoque
+    
+    @quantidade_de_estoque.setter
+    def quantidade_de_estoque(self, nova_quantidade):
+        if abs(type(nova_quantidade)) == int:
+            self.__quantidade_estoque = nova_quantidade
+        else:
+            print('Digite um valor valido, int()')
     
     @numero_de_paginas.setter
     def numero_de_paginas(self, novo_numero):
@@ -167,3 +233,14 @@ class Livro(Livraria):
             self.__status = novo_nome
         else:
             print('Digite um valor valido, str()')
+    def __str__ (self) :
+        return f'o nome do seu livro é {self.nome} do  tipo {self.tipo} com {self.numero_de_paginas} paginas idiomas {self.idioma} a editora {self.editora} seu preço total foi {self.conta + self.valor:.2f}'
+
+livro1= Livro('verity','alugado',34,234,'portugues','livrarei','alugado')
+livro1.verificação_de_aluguel()
+livro1.valor_dias_alugados(12)
+livro1.verificação_multa(12)
+print(livro1.__str__())
+livro2 = Revista('Avon','comprar',35,23,'portugues','livrace','comprado')
+livro2.verificação_de_compra(12.0)
+print(livro2.__str__())
