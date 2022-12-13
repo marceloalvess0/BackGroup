@@ -116,6 +116,12 @@ class Livro(Livraria):
             print(f'O valor do aluguel durante {dias} é {valor:.2f}')
         else:
             print("Digite algo válido")
+            
+    def verificação_de_compra(self,quantidade):
+        if 1 <= self.__quantidade_estoque >= quantidade:
+            self.__quantidade_estoque -= quantidade
+            print("Vendendo livro")
+            return self.__quantidade_estoque
     
     #------------------GETS AND SETERS
     @property
