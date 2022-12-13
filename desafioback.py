@@ -139,6 +139,17 @@ class Livro(Livraria):
     @property
     def status(self):
         return self.__status
+
+    @property
+    def quantidade_de_estoque(self):
+        return self.__quantidade_estoque
+    
+    @quantidade_de_estoque.setter
+    def quantidade_de_estoque(self, nova_quantidade):
+        if abs(type(nova_quantidade)) == int:
+            self.__quantidade_estoque = nova_quantidade
+        else:
+            print('Digite um valor valido, int()')
     
     @numero_de_paginas.setter
     def numero_de_paginas(self, novo_numero):
