@@ -14,6 +14,7 @@
 # OBS: Sempre que acontecer um aluguel ou venda diminuir do estoque.
 # OBS: Faça a impressão dos elementos
 
+print("Bem vindo a nossa livraria")
 class Livraria():
     
     def __init__(self,nome,tipo):
