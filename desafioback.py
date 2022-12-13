@@ -13,6 +13,7 @@
 # OBS: Não esqueça das validações
 # OBS: Sempre que acontecer um aluguel ou venda diminuir do estoque.
 # OBS: Faça a impressão dos elementos
+
 class Livraria():
     
     pass
@@ -46,7 +47,52 @@ class Revista(Livraria):
         self.__idioma = idioma
         self.__editora = editora
         self.__status = status
-    pass
+
+    #------------------GETS AND SETERS
+    @property
+    def numero_de_paginas(self):
+        return self.__numero_de_paginas
+    
+    @property
+    def idioma(self):
+        return self.__idioma
+
+    @property
+    def editora(self):
+        return self.__editora
+    
+    @property
+    def status(self):
+        return self.__status
+    
+    @numero_de_paginas.setter
+    def numero_de_paginas(self, novo_numero):
+        if abs(type(novo_numero)) == int: 
+            self.__numero_de_paginas = novo_numero
+        else:
+            print('Digite um valor valido, int()')
+    
+    @idioma.setter
+    def idioma(self, novo_idioma):
+        if type(novo_idioma) == str: 
+            self.__idioma = novo_idioma
+        else:
+            print('Digite um valor valido, str()')
+    
+    @editora.setter
+    def editora(self, novo_nome):
+        if type(novo_nome) == str: 
+            self.__editora = novo_nome
+        else:
+            print('Digite um valor valido, str()')
+
+    @status.setter
+    def status(self, novo_nome):
+        if type(novo_nome) == str: 
+            self.__status = novo_nome
+        else:
+            print('Digite um valor valido, str()')
+        
 class Livro(Livraria):
     def __init__(self, nome, tipo, quantidade_estoque, numero_de_paginas,idioma,editora,status):
         super().__init__(nome, tipo)
@@ -54,6 +100,7 @@ class Livro(Livraria):
         self.__idioma = idioma
         self.__editora = editora
         self.__status = status
+<<<<<<< HEAD
         self.__quantidade_estoque = quantidade_estoque
         
     def verificação_de_aluguel(self):
@@ -70,3 +117,50 @@ class Livro(Livraria):
             print(f'O valor do aluguel durante {dias} é {valor:.2f}')
         else:
             print("Digite algo válido")
+=======
+    
+    #------------------GETS AND SETERS
+    @property
+    def numero_de_paginas(self):
+        return self.__numero_de_paginas
+    
+    @property
+    def idioma(self):
+        return self.__idioma
+
+    @property
+    def editora(self):
+        return self.__editora
+    
+    @property
+    def status(self):
+        return self.__status
+    
+    @numero_de_paginas.setter
+    def numero_de_paginas(self, novo_numero):
+        if abs(type(novo_numero)) == int: 
+            self.__numero_de_paginas = novo_numero
+        else:
+            print('Digite um valor valido, int()')
+    
+    @idioma.setter
+    def idioma(self, novo_idioma):
+        if type(novo_idioma) == str: 
+            self.__idioma = novo_idioma
+        else:
+            print('Digite um valor valido, str()')
+    
+    @editora.setter
+    def editora(self, novo_nome):
+        if type(novo_nome) == str: 
+            self.__editora = novo_nome
+        else:
+            print('Digite um valor valido, str()')
+
+    @status.setter
+    def status(self, novo_nome):
+        if type(novo_nome) == str: 
+            self.__status = novo_nome
+        else:
+            print('Digite um valor valido, str()')
+>>>>>>> c34a6ba55c1273f5ca454bfffff554e06d94dfe0
