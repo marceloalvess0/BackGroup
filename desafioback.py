@@ -108,6 +108,7 @@ class Revista(Livraria):
             dias -= 7
             self.conta = dias * 2.0
             print(f'sua multa foi de {self.conta}')
+            print(f'sua conta total foi {self.conta + self.valor:.2f}')
         else :
             print('sem multa')
     def verificação_de_compra(self,quantidade):
@@ -163,6 +164,7 @@ class Livro(Livraria):
             dias -= 7
             self.conta = dias * 5.0
             print(f'sua multa foi de {self.conta}')
+            print(f'sua conta total foi {self.conta + self.valor:.2f}')
         else :
             print('sem multa')
     def verificação_de_compra(self,quantidade):
@@ -234,13 +236,14 @@ class Livro(Livraria):
         else:
             print('Digite um valor valido, str()')
     def __str__ (self) :
-        return f'o nome do seu livro é {self.nome} do  tipo {self.tipo} com {self.numero_de_paginas} paginas idiomas {self.idioma} a editora {self.editora} seu preço total foi {self.conta + self.valor:.2f}'
+        return f'o nome do seu livro é {self.nome} do  tipo {self.tipo} com {self.numero_de_paginas} paginas idiomas {self.idioma} a editora {self.editora}'
 
 livro1= Livro('verity','alugado',34,234,'portugues','livrarei','alugado')
 livro1.verificação_de_aluguel()
-livro1.valor_dias_alugados(12)
-livro1.verificação_multa(12)
+livro1.valor_dias_alugados(5)
+livro1.verificação_multa(5)
 print(livro1.__str__())
+
 livro2 = Revista('Avon','comprar',35,23,'portugues','livrace','comprado')
 livro2.verificação_de_compra(12.0)
 print(livro2.__str__())
