@@ -25,16 +25,105 @@ class Livraria():
 class Revista(Livraria):
     def __init__(self, nome, tipo, numero_de_paginas,idioma,editora,status):
         super().__init__(nome, tipo)
-        self.__numero_de_paginas=numero_de_paginas
+        self.__numero_de_paginas = numero_de_paginas
         self.__idioma = idioma
         self.__editora = editora
         self.__status = status
-    pass
+
+    #------------------GETS AND SETERS
+    @property
+    def numero_de_paginas(self):
+        return self.__numero_de_paginas
+    
+    @property
+    def idioma(self):
+        return self.__idioma
+
+    @property
+    def editora(self):
+        return self.__editora
+    
+    @property
+    def status(self):
+        return self.__status
+    
+    @numero_de_paginas.setter
+    def numero_de_paginas(self, novo_numero):
+        if abs(type(novo_numero)) == int: 
+            self.__numero_de_paginas = novo_numero
+        else:
+            print('Digite um valor valido, int()')
+    
+    @idioma.setter
+    def idioma(self, novo_idioma):
+        if type(novo_idioma) == str: 
+            self.__idioma = novo_idioma
+        else:
+            print('Digite um valor valido, str()')
+    
+    @editora.setter
+    def editora(self, novo_nome):
+        if type(novo_nome) == str: 
+            self.__editora = novo_nome
+        else:
+            print('Digite um valor valido, str()')
+
+    @status.setter
+    def status(self, novo_nome):
+        if type(novo_nome) == str: 
+            self.__status = novo_nome
+        else:
+            print('Digite um valor valido, str()')
+        
 class Livro(Livraria):
     def __init__(self, nome, tipo,numero_de_paginas,idioma,editora,status):
         super().__init__(nome, tipo)
-        self.__numero_de_paginas=numero_de_paginas
+        self.__numero_de_paginas = numero_de_paginas
         self.__idioma = idioma
         self.__editora = editora
         self.__status = status
-    pass
+    
+    #------------------GETS AND SETERS
+    @property
+    def numero_de_paginas(self):
+        return self.__numero_de_paginas
+    
+    @property
+    def idioma(self):
+        return self.__idioma
+
+    @property
+    def editora(self):
+        return self.__editora
+    
+    @property
+    def status(self):
+        return self.__status
+    
+    @numero_de_paginas.setter
+    def numero_de_paginas(self, novo_numero):
+        if abs(type(novo_numero)) == int: 
+            self.__numero_de_paginas = novo_numero
+        else:
+            print('Digite um valor valido, int()')
+    
+    @idioma.setter
+    def idioma(self, novo_idioma):
+        if type(novo_idioma) == str: 
+            self.__idioma = novo_idioma
+        else:
+            print('Digite um valor valido, str()')
+    
+    @editora.setter
+    def editora(self, novo_nome):
+        if type(novo_nome) == str: 
+            self.__editora = novo_nome
+        else:
+            print('Digite um valor valido, str()')
+
+    @status.setter
+    def status(self, novo_nome):
+        if type(novo_nome) == str: 
+            self.__status = novo_nome
+        else:
+            print('Digite um valor valido, str()')
